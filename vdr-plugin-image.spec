@@ -12,7 +12,6 @@ Group:		Video
 License:	GPL
 URL:		http://vdr-image.berlios.de/
 Source:		http://download.berlios.de/vdr-image/vdr-%plugin-%version.tar.bz2
-BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	vdr-devel >= 1.4.1-6
 Requires:	vdr-abi = %vdr_abi
 BuildRequires:	ffmpeg-devel
