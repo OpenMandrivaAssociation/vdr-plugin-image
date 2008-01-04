@@ -2,7 +2,7 @@
 %define plugin	image
 %define name	vdr-plugin-%plugin
 %define version	0.2.7
-%define rel	5
+%define rel	6
 
 Summary:	VDR plugin: Image Viewer
 Name:		%name
