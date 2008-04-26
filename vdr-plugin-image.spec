@@ -45,10 +45,13 @@ var=CONFIG_PATH
 param=--config=CONFIG_PATH
 %vdr_plugin_params_end
 
+# fixes build together with -I$(pwd) below:
+ln -s %{_includedir}/libavcodec ffmpeg
+
 %build
 
 for dir in libimage liboutput; do
-%make -C $dir $dir.a CFLAGS="%optflags -fPIC" CXXFLAGS="%optflags -fPIC"
+%make -C $dir $dir.a CFLAGS="%optflags -fPIC -I$(pwd)" CXXFLAGS="%optflags -fPIC -I$(pwd)"
 done
 
 %vdr_plugin_build
