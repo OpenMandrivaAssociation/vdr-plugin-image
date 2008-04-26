@@ -2,7 +2,7 @@
 %define plugin	image
 %define name	vdr-plugin-%plugin
 %define version	0.2.7
-%define rel	6
+%define rel	7
 
 Summary:	VDR plugin: Image Viewer
 Name:		%name
@@ -12,8 +12,9 @@ Group:		Video
 License:	GPL
 URL:		http://vdr-image.berlios.de/
 Source:		http://download.berlios.de/vdr-image/vdr-%plugin-%version.tar.bz2
+Patch0:		image-0.2.7-i18n-1.6.patch
 BuildRoot:	%{_tmppath}/%{name}-buildroot
-BuildRequires:	vdr-devel >= 1.4.1-6
+BuildRequires:	vdr-devel >= 1.6.0
 Requires:	vdr-abi = %vdr_abi
 BuildRequires:	ffmpeg-devel
 BuildRequires:	libexif-devel
@@ -26,6 +27,8 @@ device from vdr.
 
 %prep
 %setup -q -n %plugin-%version
+%patch0 -p1
+%vdr_plugin_prep
 
 %vdr_plugin_params_begin %plugin
 # command to mount/unmount/eject image sources
