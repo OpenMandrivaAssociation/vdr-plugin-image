@@ -18,7 +18,7 @@ BuildRequires:	vdr-devel >= 1.6.0
 Requires:	vdr-abi = %vdr_abi
 BuildRequires:	ffmpeg-devel
 BuildRequires:	libexif-devel
-Requires:	ImageMagick netpbm jpeg-progs
+Requires:	imagemagick netpbm jpeg-progs
 
 %description
 This VDR plugin allows the display of digital images, like jpeg,
