@@ -1,8 +1,8 @@
 
 %define plugin	image
 %define name	vdr-plugin-%plugin
-%define version	0.2.7
-%define rel	9
+%define version	0.3.0
+%define rel	1
 
 Summary:	VDR plugin: Image Viewer
 Name:		%name
@@ -11,8 +11,7 @@ Release:	%mkrel %rel
 Group:		Video
 License:	GPL
 URL:		http://vdr-image.berlios.de/
-Source:		http://download.berlios.de/vdr-image/vdr-%plugin-%version.tar.bz2
-Patch0:		image-0.2.7-i18n-1.6.patch
+Source:		http://download.berlios.de/vdr-image/vdr-%plugin-%version.tar.gz
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	vdr-devel >= 1.6.0
 Requires:	vdr-abi = %vdr_abi
@@ -27,7 +26,6 @@ device from vdr.
 
 %prep
 %setup -q -n %plugin-%version
-%patch0 -p1
 %vdr_plugin_prep
 
 %vdr_plugin_params_begin %plugin
@@ -45,13 +43,10 @@ var=CONFIG_PATH
 param=--config=CONFIG_PATH
 %vdr_plugin_params_end
 
-# fixes build together with -I$(pwd) below:
-ln -s %{_includedir}/libavcodec ffmpeg
-
 %build
 
 for dir in libimage liboutput; do
-%make -C $dir $dir.a CFLAGS="%optflags -fPIC -I$(pwd)" CXXFLAGS="%optflags -fPIC -I$(pwd)"
+%make -C $dir $dir.a CFLAGS="%optflags -fPIC" CXXFLAGS="%optflags -fPIC"
 done
 
 %vdr_plugin_build
