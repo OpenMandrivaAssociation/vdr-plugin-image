@@ -74,7 +74,7 @@ rm -rf %{buildroot}
 
 %files -f %plugin.vdr
 %defattr(-,root,root)
-%doc README HISTORY examples TODO LIESMICH
+%doc README HISTORY examples LIESMICH
 %{_bindir}/imagemount.sh
 %{_bindir}/imageplugin.sh
 %{_bindir}/magickplugin.sh
