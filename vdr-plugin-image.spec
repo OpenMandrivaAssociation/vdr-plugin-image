@@ -46,8 +46,10 @@ param=--config=CONFIG_PATH
 %build
 
 for dir in libimage liboutput; do
-%make -C $dir $dir.a CFLAGS="%optflags -fPIC" CXXFLAGS="%optflags -fPIC"
+%make -C $dir $dir.a CFLAGS="%optflags -fPIC -D__STDC_CONSTANT_MACROS" CXXFLAGS="%optflags -fPIC -D__STDC_CONSTANT_MACROS"
 done
+
+VDR_PLUGIN_EXTRA_FLAGS="-D__STDC_CONSTANT_MACROS"
 
 %vdr_plugin_build
 
