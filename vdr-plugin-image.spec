@@ -10,7 +10,7 @@ Version:	%version
 Release:	%mkrel %rel
 Group:		Video
 License:	GPL
-URL:		http://vdr-image.berlios.de/
+URL:		https://vdr-image.berlios.de/
 Source:		http://download.berlios.de/vdr-image/vdr-%plugin-%version.tar.gz
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 BuildRequires:	vdr-devel >= 1.6.0
